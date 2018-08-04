@@ -1,0 +1,20 @@
+button {
+	background-color: rgba(255, 255, 255, 0.5);
+	border: none;
+	cursor: pointer;
+	outline: none;
+	border: 1px solid #aaaaaa;
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.2);
+	}
+	&:focus {
+		//border: 1px solid #aaaaaa;
+	}
+}
+
+a {
+	color: #404040;
+	&:hover {
+		color: #000000;
+	}
+}

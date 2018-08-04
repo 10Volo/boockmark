@@ -1,0 +1,36 @@
+<section class="client">
+	<div class="container">
+		<h1>client.html</h1>
+		<ul>
+			<li ng-repeat="bookmark in bookmarks">
+				<button type="button" ng-click="startEditing();">
+					<i class="fas fa-pencil-alt"></i>
+				</button>
+				<a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
+				<button type="button">
+					<i class="far fa-trash-alt"></i>
+				</button>
+			</li>
+		</ul>
+		<hr>
+		<!--CREATING bookmark-->
+		<div ng-if="shouldShowCreating()" class="client-create-wrapper">
+			<div class="client-create-bookmark">
+				<button type="button" ng-click="starCreating();">
+					<i class="fas fa-plus"></i>
+					<span>Create bookmark</span>
+				</button>
+			</div>
+			<div ng-if="isCreating" class="client-create-options">
+				If click Should Show on create name/link/save/cancel (place holder)
+				<button type="button" ng-click="cancelCreating()">Cancel</button>
+			</div>
+		</div>
+		<!--EDITING bookmark-->
+		<div ng-if="shouldShowEditing()" class="client-create-wrapper">
+			Edit bookmark!(place holder)
+			<br>
+			<button type="button" ng-click="cancelEditing()">Cancel</button>
+		</div>
+	</div>
+</section>

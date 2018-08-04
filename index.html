@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="webApp">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>angular-ui-router</title>
+	
+	<link rel="stylesheet" href="assets/css/normalize.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link rel="stylesheet" href="app/css/style.css">
+	
+	
+</head>
+
+<body ng-controller="MainCtrl">
+	<header>
+		<div class="container">
+			<div class="header-wrapper">
+				<div class="header-logo">
+					<img src="app/img/logo-sp.png" alt="">
+				</div>
+				<div class="header-search">
+					<input type="text">
+				</div>
+				<div class="header-switch-tab">
+					<a ui-sref="client" ui-sref-active="active">Client</a>
+					<a ui-sref="administrator" ui-sref-active="active">Administrator</a>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<ui-view>
+		welcome
+	</ui-view>
+	
+	<!--UI-ROUTER-->
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="lib/angular-ui-router.js"></script>
+	<!--Angular JS-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+	
+	<script src="app/js/app.js"></script>
+</body>
+</html>
