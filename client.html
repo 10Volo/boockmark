@@ -1,36 +1,64 @@
 <section class="client">
 	<div class="container">
-		<h1>client.html</h1>
-		<ul>
-			<li ng-repeat="bookmark in bookmarks">
-				<button type="button" ng-click="startEditing();">
-					<i class="fas fa-pencil-alt"></i>
-				</button>
-				<a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
-				<button type="button">
-					<i class="far fa-trash-alt"></i>
-				</button>
-			</li>
-		</ul>
-		<hr>
-		<!--CREATING bookmark-->
-		<div ng-if="shouldShowCreating()" class="client-create-wrapper">
-			<div class="client-create-bookmark">
-				<button type="button" ng-click="starCreating();">
-					<i class="fas fa-plus"></i>
-					<span>Create bookmark</span>
-				</button>
+		<div class="client-wrapper">
+			<h1>client.html</h1>
+			<div class="bookmark-search">
+				<input type="text" ng-model="filterBookmark">
 			</div>
-			<div ng-if="isCreating" class="client-create-options">
-				If click Should Show on create name/link/save/cancel (place holder)
-				<button type="button" ng-click="cancelCreating()">Cancel</button>
+			<ul>
+				<li ng-class="{'active':isSelectedBookmark(bookmark.id)}" ng-repeat="bookmark in bookmarks | filter:filterBookmark">
+					<button type="button" ng-click="setEditedBookmark(bookmark); startEditing();">
+						<i class="fas fa-pencil-alt"></i>
+					</button>
+					<a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
+					<button type="button" ng-click="deleteBookmark(bookmark)">
+						<i class="far fa-trash-alt"></i>
+					</button>
+				</li>
+			</ul>
+			<hr>
+			<!--CREATING bookmark-->
+			<div ng-if="shouldShowCreating()" class="client-create-wrapper">
+				<div class="client-create-bookmark">
+					<button type="button" ng-click="starCreating();">
+						<i class="fas fa-plus"></i>
+						<span>Create bookmark</span>
+					</button>
+				</div>
+				<form ng-show="isCreating" role="form" ng-submit="createBookmark(newBookmark)" novalidate>
+					<div>
+						<label for="newBookmarkTitle">Bookmark URL</label>
+						<input type="text" id="newBookmarkTitle" ng-model="newBookmark.title" placeholder="Enter title">
+					</div>
+					<div>
+						<label for="newBookmarkURL">Bookmark URL</label>
+						<input type="text" id="newBookmarkURL" ng-model="newBookmark.url" placeholder="Enter URL">
+					</div>
+					<div>
+						<button type="submit"  ng-click="cancelCreating()">Create</button>
+						<button type="button" ng-click="cancelCreating()">Cancel</button>
+					</div>
+				</form>
 			</div>
-		</div>
-		<!--EDITING bookmark-->
-		<div ng-if="shouldShowEditing()" class="client-create-wrapper">
-			Edit bookmark!(place holder)
-			<br>
-			<button type="button" ng-click="cancelEditing()">Cancel</button>
+			<!--EDITING bookmark-->
+			<div ng-show="shouldShowEditing()">
+				<h4>Editing {{editedBookmark.title}}</h4>
+				
+				<form role="form" ng-submit="updateBookmark(editedBookmark)" novalidate>
+					<div>
+						<label>Bookmark Title</label>
+						<input type="text" ng-model="editedBookmark.title" placeholder="Enterbookmark title">
+					</div>
+					<div>
+						<label>Bookmark URL</label>
+						<input type="text" ng-model="editedBookmark.url" placeholder="Enterbookmark title">
+					</div>
+					<div>
+						<button type="submit">Save</button>
+						<button type="button" ng-click="cancelEditing()">Cancel</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </section>

@@ -1,25 +1,37 @@
 section.client {
-	ul {
-		li {
-			display: flex;
-			&:nth-child(odd)  {
-				background-color: #efefef;
+	.client-wrapper {
+		.bookmark-search {
+			input {
+
 			}
-			&:nth-child(even)  {
-				background-color: #dedede;
-			}
-			button {
-				&:nth-of-type(1) {
-					flex-grow: 1;
+		}
+		ul {
+			li {
+				display: flex;
+				&:nth-child(odd)  {
+					background-color: #C9D4D8;
 				}
-				&:nth-of-type(2) {
-					flex-grow: 1;
+				&:nth-child(even)  {
+					background-color: #A2B4BC;
 				}
-			}
-			a {
-				flex-grow: 20;
-				margin: 0 20px;
-				padding: 5px 10px;
+				&.active {
+					a {
+						font-weight: 800;
+					}
+				}
+				button {
+					&:nth-of-type(1) {
+						flex-grow: 1;
+					}
+					&:nth-of-type(2) {
+						flex-grow: 1;
+					}
+				}
+				a {
+					flex-grow: 20;
+					margin: 0 20px;
+					padding: 5px 10px;
+				}
 			}
 		}
 	}

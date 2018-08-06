@@ -1,5 +1,5 @@
 header {
-	background-color: #efefef;
+	background-color: $bg-header;
 	width: 100%;
 	height: 60px;
 	position: fixed;
@@ -16,13 +16,6 @@ header {
 		img {
 			width: 45px;
 			height: 45px;
-		}
-	}
-	.header-search {
-		display: flex;
-		align-items: center;
-		input {
-
 		}
 	}
 	.header-switch-tab {
